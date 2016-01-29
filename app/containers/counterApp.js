@@ -1,11 +1,10 @@
 'use strict';
 
-import Render from './counterAppRender';
-
-import { Component } from 'react';
-import * as counterActions from '../actions/counterActions';
+import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+import * as counterActions from '../actions/counterActions';
+import Counter from '../components/counter';
 
 export default class counterApp extends Component {
   constructor(props) {
@@ -13,7 +12,12 @@ export default class counterApp extends Component {
   }
 
   render() {
-    return Render.call(this, this.props)
+    const { state, actions } = this.props;
+    return (
+      <Counter
+        counter={state.count}
+        {...actions} />
+    )
   }
 }
 

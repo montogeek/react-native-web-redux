@@ -1,6 +1,5 @@
 import React from 'react';
 
-
 export default function(props) {
   const { counter, increment, decrement } = props;
 

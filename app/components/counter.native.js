@@ -18,14 +18,8 @@ const styles = StyleSheet.create({
   }
 });
 
-// export default class Counter extends Component {
-export default function() {
-  // constructor(props) {
-    // super(props);
-  // }
-
-  // render() {
-    const { counter, increment, decrement } = this.props;
+export default function(props) {
+    const { counter, increment, decrement } = props;
 
     return (
       <View style={{flex: 1, alignItems: 'center', justifyContent: 'center' }}>
