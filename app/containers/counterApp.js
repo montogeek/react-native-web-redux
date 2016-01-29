@@ -1,33 +1,14 @@
 'use strict';
 
-import React, { Component } from 'react-native';
-import {bindActionCreators} from 'redux';
-import Counter from '../components/counter';
-import * as counterActions from '../actions/counterActions';
-import { connect } from 'react-redux';
+import { Base } from './counterAppBase';
+import Render from './counterAppRender';
 
-// @connect(state => ({
-//   state: state.counter
-// }))
-class CounterApp extends Component {
+export default class counterApp extends Base {
   constructor(props) {
-    super(props);
+    super(props)
   }
 
   render() {
-    const { state, actions } = this.props;
-    return (
-      <Counter
-        counter={state.count}
-        {...actions} />
-    );
+    return Render.call(this, this.props, this.state)
   }
 }
-
-export default connect(state => ({
-    state: state.counter
-  }),
-  (dispatch) => ({
-    actions: bindActionCreators(counterActions, dispatch)
-  })
-)(CounterApp);
