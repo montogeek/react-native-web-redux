@@ -2,12 +2,13 @@
 
 import React from 'react';
 
-export default function (props, state) {
-  console.log(props)
-  console.log(state)
+import Counter from '../components/counter';
+
+export default function (props) {
+  const { actions, state } = props
   return (
-    <div className='screen'>
-      Soy el counterAppRender Web
-    </div>
+      <Counter
+        counter={state.count}
+        {...actions} />
   );
 }

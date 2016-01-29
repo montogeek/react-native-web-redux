@@ -1,5 +1,3 @@
-import Counter from '../components/counter';
-
 'use strict';
 
 import React, {
@@ -9,6 +7,8 @@ import React, {
   Text,
   TouchableOpacity
 } from 'react-native';
+
+import Counter from '../components/counter';
 
 export default function (props) {
   const { actions, state } = props
