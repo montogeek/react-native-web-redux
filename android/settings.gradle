@@ -1,0 +1,3 @@
+rootProject.name = 'rnwcounter'
+
+include ':app'
