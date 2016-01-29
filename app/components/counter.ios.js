@@ -2,6 +2,10 @@
 
 import Render from './counter.native'
 
-export default function() {
-  return Render.call(this, this.props, this.state);
+import { Component } from 'react';
+
+export default class counter extends Component {
+  render() {
+    return Render.call(this, this.props, this.state)
+  }
 }

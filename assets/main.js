@@ -19737,7 +19737,25 @@
 /* 160 */
 /***/ function(module, exports, __webpack_require__) {
 
+	// 'use strict';
+	
+	// import { Base } from './counterAppBase';
+	// import Render from './counterAppRender';
+	
+	// export default class counterApp extends Base {
+	//   constructor(props) {
+	//     super(props)
+	//   }
+	
+	//   render() {
+	//     return Render.call(this, this.props, this.state)
+	//   }
+	// }
+	//
+	//
 	'use strict';
+	
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 	
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 	
@@ -19745,55 +19763,15 @@
 	  value: true
 	});
 	
-	var _counterAppBase = __webpack_require__(161);
+	var _reactNative = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"react-native\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
 	
-	var _counterAppRender = __webpack_require__(182);
-	
-	var _counterAppRender2 = _interopRequireDefault(_counterAppRender);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-	
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
-	var counterApp = function (_Base) {
-	  _inherits(counterApp, _Base);
-	
-	  function counterApp(props) {
-	    _classCallCheck(this, counterApp);
-	
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(counterApp).call(this, props));
-	  }
-	
-	  _createClass(counterApp, [{
-	    key: 'render',
-	    value: function render() {
-	      return _counterAppRender2.default.call(this, this.props, this.state);
-	    }
-	  }]);
-	
-	  return counterApp;
-	}(_counterAppBase.Base);
-
-	exports.default = counterApp;
-
-/***/ },
-/* 161 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	exports.Base = undefined;
-	
-	var _react = __webpack_require__(3);
+	var _reactNative2 = _interopRequireDefault(_reactNative);
 	
 	var _redux = __webpack_require__(162);
+	
+	var _counter = __webpack_require__(242);
+	
+	var _counter2 = _interopRequireDefault(_counter);
 	
 	var _counterActions = __webpack_require__(171);
 	
@@ -19803,49 +19781,65 @@
 	
 	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 	
 	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	// import Counter from '../components/counter';
 	
 	// @connect(state => ({
 	//   state: state.counter
 	// }))
 	
-	var CounterAppBase = function (_Component) {
-	  _inherits(CounterAppBase, _Component);
+	var CounterApp = function (_Component) {
+	  _inherits(CounterApp, _Component);
 	
-	  function CounterAppBase(props) {
-	    _classCallCheck(this, CounterAppBase);
+	  function CounterApp(props) {
+	    _classCallCheck(this, CounterApp);
 	
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(CounterAppBase).call(this, props));
+	    return _possibleConstructorReturn(this, Object.getPrototypeOf(CounterApp).call(this, props));
 	  }
 	
-	  // render() {
-	  //   const { state, actions } = this.props;
-	  //   return (
-	  //     <Counter
-	  //       counter={state.count}
-	  //       {...actions} />
-	  //   );
-	  // }
+	  _createClass(CounterApp, [{
+	    key: 'render',
+	    value: function render() {
+	      var _props = this.props;
+	      var state = _props.state;
+	      var actions = _props.actions;
 	
-	  return CounterAppBase;
-	}(_react.Component);
+	      console.log(this.props);
+	      return _reactNative2.default.createElement(
+	        _reactNative.View,
+	        null,
+	        _reactNative2.default.createElement(
+	          _reactNative.Text,
+	          null,
+	          'Hi'
+	        ),
+	        _reactNative2.default.createElement(_counter2.default, _extends({
+	          counter: state.count
+	        }, actions))
+	      );
+	    }
+	  }]);
 	
-	// export default connect(state => ({
-	//     state: state.counter
-	//   }),
-	//   (dispatch) => ({
-	//     actions: bindActionCreators(counterActions, dispatch)
-	//   })
-	// )(CounterAppBase);
+	  return CounterApp;
+	}(_reactNative.Component);
 	
-	exports.Base = CounterAppBase;
+	exports.default = (0, _reactRedux.connect)(function (state) {
+	  return {
+	    state: state.counter
+	  };
+	}, function (dispatch) {
+	  return {
+	    actions: (0, _redux.bindActionCreators)(counterActions, dispatch)
+	  };
+	})(CounterApp);
 
 /***/ },
+/* 161 */,
 /* 162 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -21066,32 +21060,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(6)))
 
 /***/ },
-/* 182 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	exports.default = function (props, state) {
-	  console.log(props);
-	  console.log(state);
-	  return _react2.default.createElement(
-	    'div',
-	    { className: 'screen' },
-	    'Soy el counterAppRender'
-	  );
-	};
-	
-	var _react = __webpack_require__(3);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-/***/ },
+/* 182 */,
 /* 183 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -25999,6 +25968,13 @@
 	
 	exports['default'] = _createRouterHistory2['default'](_historyLibCreateHashHistory2['default']);
 	module.exports = exports['default'];
+
+/***/ },
+/* 241 */,
+/* 242 */
+/***/ function(module, exports) {
+
+	"use strict";
 
 /***/ }
 /******/ ]);

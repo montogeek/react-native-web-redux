@@ -18,13 +18,13 @@ const styles = StyleSheet.create({
   }
 });
 
-export default class Counter extends Component {
-// export default function()
-  constructor(props) {
-    super(props);
-  }
+// export default class Counter extends Component {
+export default function() {
+  // constructor(props) {
+    // super(props);
+  // }
 
-  render() {
+  // render() {
     const { counter, increment, decrement } = this.props;
 
     return (
@@ -38,5 +38,5 @@ export default class Counter extends Component {
         </TouchableOpacity>
       </View>
     );
-  }
+  // }
 }
