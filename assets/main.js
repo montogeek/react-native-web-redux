@@ -19737,25 +19737,9 @@
 /* 160 */
 /***/ function(module, exports, __webpack_require__) {
 
-	// 'use strict';
-	
-	// import { Base } from './counterAppBase';
-	// import Render from './counterAppRender';
-	
-	// export default class counterApp extends Base {
-	//   constructor(props) {
-	//     super(props)
-	//   }
-	
-	//   render() {
-	//     return Render.call(this, this.props, this.state)
-	//   }
-	// }
-	//
-	//
 	'use strict';
 	
-	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+	// import { Base } from './counterAppBase';
 	
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 	
@@ -19763,19 +19747,17 @@
 	  value: true
 	});
 	
-	var _reactNative = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"react-native\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+	var _counterAppRender = __webpack_require__(182);
 	
-	var _reactNative2 = _interopRequireDefault(_reactNative);
+	var _counterAppRender2 = _interopRequireDefault(_counterAppRender);
 	
-	var _redux = __webpack_require__(162);
-	
-	var _counter = __webpack_require__(242);
-	
-	var _counter2 = _interopRequireDefault(_counter);
+	var _react = __webpack_require__(3);
 	
 	var _counterActions = __webpack_require__(171);
 	
 	var counterActions = _interopRequireWildcard(_counterActions);
+	
+	var _redux = __webpack_require__(162);
 	
 	var _reactRedux = __webpack_require__(173);
 	
@@ -19789,45 +19771,26 @@
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
-	// @connect(state => ({
-	//   state: state.counter
-	// }))
+	var counterApp = function (_Component) {
+	  _inherits(counterApp, _Component);
 	
-	var CounterApp = function (_Component) {
-	  _inherits(CounterApp, _Component);
+	  function counterApp(props) {
+	    _classCallCheck(this, counterApp);
 	
-	  function CounterApp(props) {
-	    _classCallCheck(this, CounterApp);
-	
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(CounterApp).call(this, props));
+	    return _possibleConstructorReturn(this, Object.getPrototypeOf(counterApp).call(this, props));
 	  }
 	
-	  _createClass(CounterApp, [{
+	  _createClass(counterApp, [{
 	    key: 'render',
 	    value: function render() {
-	      var _props = this.props;
-	      var state = _props.state;
-	      var actions = _props.actions;
-	
-	      console.log(this.props);
-	      return _reactNative2.default.createElement(
-	        _reactNative.View,
-	        null,
-	        _reactNative2.default.createElement(
-	          _reactNative.Text,
-	          null,
-	          'Hi'
-	        ),
-	        _reactNative2.default.createElement(_counter2.default, _extends({
-	          counter: state.count
-	        }, actions))
-	      );
+	      return _counterAppRender2.default.call(this);
 	    }
 	  }]);
 	
-	  return CounterApp;
-	}(_reactNative.Component);
+	  return counterApp;
+	}(_react.Component);
 	
+	exports.default = counterApp;
 	exports.default = (0, _reactRedux.connect)(function (state) {
 	  return {
 	    state: state.counter
@@ -19836,7 +19799,48 @@
 	  return {
 	    actions: (0, _redux.bindActionCreators)(counterActions, dispatch)
 	  };
-	})(CounterApp);
+	})(counterApp);
+	//
+	//
+	//
+	//
+	// IT WORKS ON NATIVE
+	// 'use strict';
+
+	// import React, { Component, View, Text } from 'react-native';
+	// import {bindActionCreators} from 'redux';
+	// import Counter from '../components/counter';
+	// import * as counterActions from '../actions/counterActions';
+	// import { connect } from 'react-redux';
+
+	// // @connect(state => ({
+	// //   state: state.counter
+	// // }))
+	// class CounterApp extends Component {
+	//   constructor(props) {
+	//     super(props);
+	//   }
+
+	//   render() {
+	//     const { state, actions } = this.props;
+	//     console.log(this.props)
+	//     return (
+	//       <View>
+	//         <Counter
+	//           counter={state.count}
+	//           {...actions} />
+	//       </View>
+	//     );
+	//   }
+	// }
+
+	// export default connect(state => ({
+	//     state: state.counter
+	//   }),
+	//   (dispatch) => ({
+	//     actions: bindActionCreators(counterActions, dispatch)
+	//   })
+	// )(CounterApp);
 
 /***/ },
 /* 161 */,
@@ -21060,7 +21064,32 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(6)))
 
 /***/ },
-/* 182 */,
+/* 182 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	exports.default = function (props, state) {
+	  console.log(props);
+	  console.log(state);
+	  return _react2.default.createElement(
+	    'div',
+	    { className: 'screen' },
+	    'Soy el counterAppRender Web'
+	  );
+	};
+	
+	var _react = __webpack_require__(3);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+/***/ },
 /* 183 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -25968,13 +25997,6 @@
 	
 	exports['default'] = _createRouterHistory2['default'](_historyLibCreateHashHistory2['default']);
 	module.exports = exports['default'];
-
-/***/ },
-/* 241 */,
-/* 242 */
-/***/ function(module, exports) {
-
-	"use strict";
 
 /***/ }
 /******/ ]);

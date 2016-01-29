@@ -7,7 +7,7 @@ export default function (props, state) {
   console.log(state)
   return (
     <div className='screen'>
-      Soy el counterAppRender
+      Soy el counterAppRender Web
     </div>
   );
 }

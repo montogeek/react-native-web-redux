@@ -10,10 +10,11 @@ import React, {
   TouchableOpacity
 } from 'react-native';
 
-export default function (props, state) {
+export default function (props) {
+  const { actions, state } = props
   return (
-    <View>
-      <Text> Hi </Text>
-    </View>
+    <Counter
+      counter={state.count}
+      {...actions} />
   );
 }
