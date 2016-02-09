@@ -17,9 +17,9 @@ It was inspired by https://github.com/benoitvallon/react-native-nw-react-calcula
 
 ## Web version
 
-![Web version](https://cloud.githubusercontent.com/assets/1002461/12907427/472c9f8c-ceb9-11e5-97fb-2a0fc5887017.png)
+![Web version](https://cloud.githubusercontent.com/assets/1002461/12907675/f10edca2-cebb-11e5-985d-291567b3e28e.gif)
 
 ## iOS version
-![iOS Native version](https://cloud.githubusercontent.com/assets/1002461/12907445/7f3ccc12-ceb9-11e5-905b-d967d6fae972.png)
+![iOS Native version](https://cloud.githubusercontent.com/assets/1002461/12907674/f0f4d604-cebb-11e5-93fb-e94f5a1a0cb1.gif)
 
 Now you can edit any file and see the change on the Simulator and the Browser.
